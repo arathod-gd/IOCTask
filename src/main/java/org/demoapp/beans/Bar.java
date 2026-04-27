@@ -1,5 +1,7 @@
 package org.demoapp.beans;
 
+import jakarta.annotation.PostConstruct;
+import jakarta.annotation.PreDestroy;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -13,4 +15,17 @@ public class Bar {
     public void show(){
         foo.print();
     }
+
+
+    @PostConstruct
+    public void init() {
+        System.out.println("\nBar bean initialized!");
+    }
+
+
+    @PreDestroy
+    public void destroy() {
+        System.out.println("\nBar bean destroyed!");
+    }
+
 }
